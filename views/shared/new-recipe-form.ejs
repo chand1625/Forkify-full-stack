@@ -1,0 +1,107 @@
+<%- include("includes/head.ejs",{pageTitle:"Add new recipe"}) %>
+    <link rel="stylesheet" href="/styles/form.css">
+  </head>
+  <body>
+    <%- include("includes/header.ejs") %>
+    <main class="main-area">
+      <section>
+        <div class="section-header-container">
+          <h2 class="section-header"><%= sessionData.formType === "new" ? "New Recipe" : "Edit recipe" %></h2>
+          <p class="section-header-secondary"><%= locals.isAdmin ? (sessionData.formType === "new" ? "Publish a fresh and tasty recipe" : `Edit and publish the recipe "${sessionData.title}" submitted by ${sessionData.userName}`) : "Spread your taste to thousand of other users worldwide"%></p>
+        </div>
+        <form action="<%= sessionData.formType === "new" ? "add-new-recipe" : "update-recipe" %>" method="POST" enctype="multipart/form-data" class="main-form">
+          <div class="form-body">
+            <h3 class="form-header">Add your recipe</h3>
+            <div class="input-container">
+              <label for="title">Title</label>
+              <% if (sessionData.validationErrors?.titleError) { %>
+                <p class="input-error-message"><%=sessionData.validationErrors.titleError %></p>      
+              <% } %>
+              <input type="text" id="title" name="title" maxlength="25" value="<%= sessionData.title %>" required placeholder="Title can not have more than 25 characters">
+            </div>
+            <div class="input-container">
+              <label for="image">Image</label>
+              <img src="" alt="choosen-recipe-image" class="preview-image">
+              <% if (sessionData.validationErrors?.imageError) { %>
+                <p class="input-error-message"><%=sessionData.validationErrors.imageError %></p>      
+              <% } %>
+              <input type="file" id="image" name="image" accept="image/*">
+              <input type="hidden" id="prevImgOriginalName" name="prevImgOriginalName" value="<%= sessionData.prevImgOriginalName ?? "none" %>">
+              <input type="hidden" id="prevImgSize" name="prevImgSize" value="<%= sessionData.prevImgSize ?? "none" %>">
+              <input type="hidden" id="prevImgSize" name="prevImgSrc" value="<%= sessionData.prevImgSrc ?? "none" %>">
+              <input type="hidden" id="recipeId" name="recipeId" value="<%= sessionData.recipeId ?? "none" %>">
+            </div>
+            <div class="input-container">
+              <label for="category">Category</label>
+              <% if (sessionData.validationErrors?.categoryError) { %>
+                <p class="input-error-message"><%=sessionData.validationErrors.categoryError %></p>      
+              <% } %>
+              <select id="category" name="category" required >
+                <option value="">Select a category</option>
+                <% categories.forEach(category => { %>
+                  <option value="<%= category.id %>" <%= sessionData.category == `${category.id}` ? "selected" : "" %> ><%= category.name %> </option>
+                <% }) %>
+              </select>
+            </div>
+            <div class="input-container">
+              <label for="dishtype">Dish type</label>
+              <% if (sessionData.validationErrors?.dishtypeError) { %>
+                <p class="input-error-message"><%=sessionData.validationErrors.dishtypeError %></p>      
+              <% } %>
+              <select id="dishtype" name="dishtype" required >
+                <option value="">Select a dish type</option>
+                <option value="0" <%= sessionData.dishtype == "0" ? "selected" : "" %> >Vegetarian</option>
+                <option value="1" <%= sessionData.dishtype == "1" ? "selected" : "" %> >Non Vegetarian</option>
+              </select>
+            </div>
+            <div class="input-container">
+              <label for="ingredients">Ingredients</label>
+              <% if (sessionData.validationErrors?.ingredientsError) { %>
+                <p class="input-error-message"><%=sessionData.validationErrors.ingredientsError %></p>      
+              <% } %>
+              <textarea id="ingredients" name="ingredients" rows="5" cols="60" required placeholder="Write all ingredients required for your dish within 1000 characters" maxlength="1000" ><%= sessionData.ingredients %></textarea>
+            </div>
+            <div class="input-container">
+              <label for="description">Description</label>
+              <% if (sessionData.validationErrors?.descriptionError) { %>
+                <p class="input-error-message"><%=sessionData.validationErrors.descriptionError %></p>      
+              <% } %>
+              <textarea id="description" name="description" rows="20" cols="60"  required placeholder="Describe your recipe within 4000 characters" maxlength="4000" ><%= sessionData.description %></textarea>
+            </div>
+            <div class="input-container">
+              <label for="youtubevideo">YouTube video <span>(https://www.youtube.com/embed/your-video-id)</span></label>
+              <% if (sessionData.validationErrors?.youtubevideoError) { %>
+                <p class="input-error-message"><%=sessionData.validationErrors.youtubevideoError %></p>      
+              <% } %>
+              <input type="text" id="youtubevideo" name="youtubevideo" value="<%= sessionData.youtubevideo==="none" ? "": sessionData.youtubevideo %>" placeholder="If you have any YouTube video of your recipe, please add it">
+            </div>
+            <button class="form-btn">Submit</button>
+            </div> 
+          </form>
+        </section>
+      </main>
+      <script>
+        document.getElementById(`<%-sessionData.validationErrors?.focused %>`).focus();
+        
+        const previewImage = document.querySelector(".preview-image");
+        const inputImage = document.getElementById("image");
+
+        if(`<%-sessionData.prevImgSrc %>`){
+          previewImage.src = `<%-sessionData.prevImgSrc %>`;
+          previewImage.style.display = "block";
+        }
+
+        inputImage.addEventListener("change", function(e) {
+          const file = inputImage.files;    
+          if(!file || file.length === 0){
+            previewImage.src = "";
+            previewImage.style.display = "none";
+            return;
+          }
+          const pickedFile = file[0];
+          previewImage.src = URL.createObjectURL(pickedFile);
+          previewImage.style.display = "block";
+        });
+      </script>
+  </body> 
+</html>

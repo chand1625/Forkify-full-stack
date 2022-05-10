@@ -1,0 +1,236 @@
+.adminside-recipe-admin-btns-container,
+.recipe-btns-container {
+  display: flex;
+  justify-content: flex-start;
+  gap: 24px;
+}
+
+.adminside-recipe-admin-btn-icon,
+.recipe-btn-icon {
+  height: 32px;
+  width: 32px;
+}
+
+.adminside-recipe-admin-btn,
+.recipe-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 24px;
+  border-radius: 9px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+  fill: #fff;
+}
+
+.favourite-btn {
+  background-color: #f06595;
+}
+
+.favourite-btn:hover,
+.favourite-btn:active {
+  background-color: #a61e4d;
+}
+
+.back-btn {
+  background-color: #e67e22;
+  margin-right: auto;
+}
+
+.back-btn:hover,
+.back-btn:active {
+  background-color: #d35400;
+}
+
+.edit-btn {
+  background-color: #339af0;
+}
+
+.edit-btn:hover,
+.edit-btn:active {
+  background-color: #1864ab;
+}
+
+.approve-btn {
+  background-color: #20c997;
+}
+
+.approve-btn:hover,
+.approve-btn:active {
+  background-color: #087f5b;
+}
+
+.reject-btn,
+.delete-btn {
+  background-color: #ff6b6b;
+}
+
+.reject-btn:hover,
+.reject-btn:active,
+.delete-btn:hover,
+.delete-btn:active {
+  background-color: #c92a2a;
+}
+
+.recipe-section {
+  gap: 48px;
+}
+
+.recipe-header {
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  border-top: 2px solid #e67e22;
+  border-bottom: 2px solid #e67e22;
+}
+
+.recipe-title {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.recipe-header-details {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  gap: 24px;
+}
+
+.recipe-category,
+.recipe-dishtype,
+.recipe-status {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 8px 16px;
+  color: #fff;
+  border-radius: 9px;
+}
+
+.recipe-status {
+  text-transform: uppercase;
+}
+
+.status-pending {
+  background-color: #adb5bd;
+}
+
+.status-rejected {
+  background-color: #ff6b6b;
+}
+
+.status-approved {
+  background-color: #20c997;
+}
+
+.recipe-views {
+  font-size: 20px;
+}
+
+.recipe-views-number {
+  font-size: 24px;
+}
+
+.recipe-category {
+  background-color: #e67e22;
+}
+
+.dishtype-veg {
+  background-color: #4caf50;
+}
+
+.dishtype-nonveg {
+  background-color: #f44336;
+}
+
+.recipe-dishtype {
+  display: flex;
+  align-items: center;
+}
+
+.veg-nonveg-icon,
+.user-icon,
+.clock-icon {
+  height: 24px;
+  width: 24px;
+  margin-right: 8px;
+}
+
+.veg-nonveg-icon {
+  fill: #fff;
+}
+
+.user-icon,
+.clock-icon {
+  fill: #333;
+}
+
+.recipe-username,
+.recipe-updatedat {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+}
+
+.recipe-image-container {
+  display: flex;
+  justify-content: center;
+  object-fit: contain;
+}
+
+.recipe-image-container img,
+.recipe-youtubevideo-content iframe {
+  display: block;
+  margin: 0 auto;
+  height: 400px;
+  border-radius: 17px;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.2);
+}
+
+.recipe-image-container img {
+  width: 30%;
+}
+
+.recipe-youtubevideo-content iframe {
+  width: 60%;
+}
+
+.recipe-ingredients-title,
+.recipe-description-title,
+.recipe-youtubevideo-title {
+  font-size: 26px;
+  margin-bottom: 18px;
+}
+
+.recipe-ingredients-content,
+.recipe-description-content {
+  white-space: pre-wrap;
+  font-size: 22px;
+  line-height: 1.5;
+  padding: 24px 36px;
+  background-color: #fdf2e9;
+  border-radius: 19px;
+}
+
+.recipe-youtubevideo-content {
+  display: flex;
+  justify-content: center;
+}
+
+.back-to-top-link-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 64px;
+}
+
+.back-to-top-link-container a {
+  color: #e67e22;
+  font-size: 18px;
+  border-bottom: 1px solid #e67e22;
+}
+
+.back-to-top-link-container a:hover,
+.back-to-top-link-container a:active {
+  color: #b65500;
+  border-color: #b65500;
+}

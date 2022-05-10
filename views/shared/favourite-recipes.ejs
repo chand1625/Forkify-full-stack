@@ -1,0 +1,51 @@
+<%- include("includes/head.ejs",{pageTitle:"Favourite recipes"}) %>
+  </head>
+  <body>
+    <%- include("includes/header.ejs") %>
+    <main class="main-area">
+      <section>
+        <div class="section-header-container">
+          <h2 class="section-header">Favourite</h2>
+          <p class="section-header-secondary">Recipes which are added in your Favourite list</p>
+        </div>
+        <ul class="forkify-standard-list">
+          <% favouriteRecipes.forEach(recipe => { %>
+            <li class="forkify-standard-list-item">
+              <a href="/recipe-details/<%= recipe.id %>/<%= recipe.urlTitle %>?pageType=favourites&fromPage=<%= paginationMetaData.currPage %>" class="forkify-standard-list-item-link">
+                <img
+                  src="/<%= recipe.image %>"
+                  alt="<%= recipe.title %> photo"
+                  class="forkify-standard-list-item-image"
+                />
+                <div class="recipe-list-item-details">
+                  <h3 class="recipe-list-item-header"><%= recipe.title %> </h3>
+                  <p class="recipe-list-item-category-name"><%= recipe.name %> </p>
+                  <p class="recipe-list-item-update-at"> 
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C201.7 512 151.2 495 109.7 466.1C95.2 455.1 91.64 436 101.8 421.5C111.9 407 131.8 403.5 146.3 413.6C177.4 435.3 215.2 448 256 448C362 448 448 362 448 256C448 149.1 362 64 256 64C202.1 64 155 85.46 120.2 120.2L151 151C166.1 166.1 155.4 192 134.1 192H24C10.75 192 0 181.3 0 168V57.94C0 36.56 25.85 25.85 40.97 40.97L74.98 74.98C121.3 28.69 185.3 0 255.1 0L256 0zM256 128C269.3 128 280 138.7 280 152V246.1L344.1 311C354.3 320.4 354.3 335.6 344.1 344.1C335.6 354.3 320.4 354.3 311 344.1L239 272.1C234.5 268.5 232 262.4 232 256V152C232 138.7 242.7 128 256 128V128z"/></svg>
+                    <%= recipe.updated_at %> 
+                  </p>
+                </div>
+              </a>
+            </li>
+          <% }) %>
+        </ul>
+        <div class="pagination-info">
+          <form action="/favourites/" method="GET" class="left-page-form">
+            <input type="hidden" value="<%= paginationMetaData.leftPage %>" name="page">
+            <button class="left-btn" <%= paginationMetaData.leftPage == 0 ? "disabled" : ""%>>
+              <svg class="<%= paginationMetaData.leftPage == 0 ? "btn-disabled" : " "%>" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M384 32H64C28.65 32 0 60.65 0 96v320c0 35.34 28.65 64 64 64h320c35.35 0 64-28.66 64-64V96C448 60.65 419.3 32 384 32zM288 360c0 9.531-5.656 18.19-14.41 22C270.5 383.3 267.3 384 264 384c-5.938 0-11.81-2.219-16.34-6.406l-112-104C130.8 269 128 262.7 128 256s2.781-13.03 7.656-17.59l112-104c7.031-6.469 17.22-8.156 25.94-4.406C282.3 133.8 288 142.5 288 152V360z"/></svg>
+            </button>
+          </form>
+          <p class="page-no-text">Page <%= paginationMetaData.currPage %> / <%= paginationMetaData.totalPages %>  </p>
+          <form action="/favourites/" method="GET" class="right-page-form">
+            <input type="hidden" value="<%= paginationMetaData.rightPage %>" name="page">
+            <button class="right-btn" <%= paginationMetaData.rightPage > paginationMetaData.totalPages  ? "disabled" : ""%>>
+              <svg class="<%= paginationMetaData.rightPage > paginationMetaData.totalPages  ? "btn-disabled" : " "%>" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M384 32H64C28.65 32 0 60.65 0 96v320c0 35.34 28.65 64 64 64h320c35.35 0 64-28.66 64-64V96C448 60.65 419.3 32 384 32zM312.3 273.6l-112 104C195.8 381.8 189.9 384 184 384c-3.25 0-6.5-.6562-9.594-2C165.7 378.2 160 369.5 160 360v-208c0-9.531 5.656-18.19 14.41-22c8.75-3.75 18.94-2.062 25.94 4.406l112 104C317.2 242.1 320 249.3 320 256S317.2 269 312.3 273.6z"/></svg>
+            </button>
+          </form>
+        </div>
+        <div class="total-results-info">Total of <%= totalResults %> recipes found!</div>
+      </section>
+    </main>
+  </body> 
+</html>
