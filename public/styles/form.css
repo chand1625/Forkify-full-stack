@@ -1,0 +1,155 @@
+.main-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 16px;
+  width: 100%;
+}
+
+.form-body {
+  margin: 0 auto;
+  background-image: linear-gradient(to right bottom, #eb984e, #e67e22);
+  box-shadow: 0 24px 48px rgb(0 0 0 / 15%);
+  border-radius: 11px;
+  padding: 48px 64px;
+  text-align: center;
+  color: #45260a;
+}
+
+.form-header {
+  font-size: 26px;
+  margin-bottom: 48px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.input-error-message {
+  text-align: left;
+  background-color: #e03131;
+  color: #fdf2e9;
+  padding: 8px 16px;
+  border-radius: 9px;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 10%);
+}
+
+.form-body label {
+  display: block;
+  text-align: left;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+label span {
+  color: #6a513b;
+}
+
+.form-body input,
+.form-body select,
+.form-body textarea {
+  width: 100%;
+  padding: 12px;
+  font-size: 18px;
+  font-family: inherit;
+  font-weight: 500;
+  color: inherit;
+  border: none;
+  background-color: #fdf2e9;
+  border-radius: 9px;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 10%);
+}
+
+.form-body option {
+  font-weight: 500;
+}
+
+.form-body textarea {
+  resize: none;
+}
+
+.form-body input:focus,
+.form-body button:focus,
+.form-body select:focus,
+.form-body textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 8px rgba(253, 242, 233, 0.5);
+}
+
+#image::file-selector-button {
+  padding: 8px;
+  font-family: inherit;
+  text-decoration: none;
+  background-color: #45260a;
+  color: #fdf2e9;
+  border: none;
+  border-radius: 9px;
+  font-weight: 500;
+}
+
+#image::file-selector-button:hover,
+#image::file-selector-button:active {
+  color: #45260a;
+  background-color: #fdf2e9;
+  outline: #45260a solid 2px;
+}
+
+input[type="file"] {
+  color: rgba(0, 0, 0, 0);
+}
+
+.form-btn {
+  margin-top: 48px;
+  margin-bottom: 24px;
+  background-color: #45260a;
+  color: #fdf2e9;
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 16px 32px;
+  border-radius: 9px;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.form-btn:hover,
+.form-btn:active {
+  color: #45260a;
+  background-color: #fdf2e9;
+}
+
+.login-signup-toggler {
+  text-decoration: none;
+  color: #fff;
+  font-size: 20px;
+}
+
+.login-signup-toggler:hover,
+.login-signup-toggler:active {
+  border-bottom: 2px solid #fff;
+}
+
+.validation-error {
+  padding: 8px 16px;
+  background-color: #e03131;
+  color: #fdf2e9;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 9px;
+  margin-bottom: 24px;
+}
+
+.preview-image {
+  width: 150px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 9px;
+  box-shadow: 0 0 0 2px #fdf2e9;
+  display: none;
+}

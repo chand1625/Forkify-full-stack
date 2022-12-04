@@ -1,0 +1,33 @@
+<%- include("includes/head.ejs",{pageTitle:"Forkify | Login"}) %>
+    <link rel="stylesheet" href="/styles/form.css">
+  </head>
+  <body>
+    <%- include("includes/header.ejs") %>
+    <main class="main-area">
+      <section>
+        <div class="section-header-container">
+          <h2 class="section-header">Login</h2>
+          <p class="section-header-secondary">Login to submit and like recipes</p>
+        </div>
+        <form action="/login" method="POST" class="main-form">
+          <div class="form-body">
+            <h3 class="form-header">Access your account</h3>
+            <% if (sessionData.errorMsg) { %>
+              <p class="validation-error"><%= sessionData.errorMsg %>  </p>
+              <% } %>
+              <div class="input-container">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" value="<%= sessionData.email %>" required>
+              </div>
+              <div class="input-container">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" value="<%= sessionData.password %>" required minlength="6">
+              </div>
+              <button class="form-btn">Submit</button>
+              <a href="/signup" class="login-signup-toggler">Not having an account? Click here to create</a>
+            </div> 
+          </form>
+        </section>
+      </main>
+  </body> 
+</html>

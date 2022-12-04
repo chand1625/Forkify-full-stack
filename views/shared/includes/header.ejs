@@ -1,0 +1,45 @@
+<header>
+  <a href="/" class="forkify-logo-container"><img src="/images/logo.png" alt="Forkify logo"></a>
+  <nav>
+    <ul class="header-nav-list">
+      <li class="header-nav-item"> 
+        <form action="/search-recipe" method="GET" class="search-recipe-form">
+          <input class="search-input" type="search" name="searchterm" placeholder="Search for a recipe...">
+          <input class="search-button" type="submit" value="Search">
+        </form>
+      </li>
+      <% if (!locals.isAuth || (locals.isAuth && !locals.isAdmin)) { %>
+        <li class="header-nav-item">
+          <a href="/new-recipe-form" class="submit-fav-recipe-btn">
+            Submit a recipe
+          </a>
+        </li>
+      <% } %>
+      <% if (!locals.isAuth || (locals.isAuth && !locals.isAdmin)) { %>
+        <li class="header-nav-item">
+          <a href="/favourites" class="submit-fav-recipe-btn">
+            Favourites
+          </a>
+        </li>
+      <% } %>
+      <% if (locals.isAuth && !locals.isAdmin) { %>
+        <li class="header-nav-item">
+          <a href="/my-recipes" class="submit-fav-recipe-btn">
+            My Recipes
+          </a>
+        </li>
+      <% } %>
+      <% if (locals.isAuth) { %>
+        <li class="header-nav-item">
+          <form action="/logout" method="POST">
+            <button class="login-btn">Not <%= locals.name %>? Logout</button>
+          </form>
+        </li>  
+      <% } else { %> 
+        <li class="header-nav-item">
+          <a href="/login" class="login-btn">Login</a>
+        </li>
+      <% } %>  
+    </ul>
+  </nav>
+</header>

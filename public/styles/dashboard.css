@@ -1,0 +1,55 @@
+.dashboard-list {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+}
+
+.dashboard-link-icon {
+  height: 128px;
+  width: 128px;
+  margin-bottom: 26px;
+}
+
+.dashboard-list-item a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 26px;
+  padding: 48px 84px;
+  border-radius: 17px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  font-weight: bold;
+  color: #333;
+}
+
+.dashboard-list-item a:hover {
+  color: #fff;
+  fill: #fff;
+}
+
+.add-new-recipe-btn a {
+  background-image: linear-gradient(to right bottom, #fff3bf, #ffd43b);
+}
+
+.add-new-recipe-btn a:hover,
+.add-new-recipe-btn a:active {
+  background-image: linear-gradient(to right bottom, #fcc419, #e67700);
+}
+
+.pending-recipe-btn a {
+  background-image: linear-gradient(to right bottom, #f1f3f5, #ced4da);
+}
+
+.pending-recipe-btn a:hover,
+.pending-recipe-btn a:active {
+  background-image: linear-gradient(to right bottom, #adb5bd, #212529);
+}
+
+.published-recipe-btn a {
+  background-image: linear-gradient(to right bottom, #d3f9d8, #69db7c);
+}
+
+.published-recipe-btn a:hover,
+.published-recipe-btn a:active {
+  background-image: linear-gradient(to right bottom, #51cf66, #2b8a3e);
+}
